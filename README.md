@@ -357,3 +357,27 @@ Exemplo gerando um log na Área de trabalho
 ## Dúvidas
 
 * O WSL 2 funciona junto com outras máquinas virtuais como **VirtualBox** ou **VMWare**? Siga a [referência](https://docs.microsoft.com/pt-br/windows/wsl/wsl2-faq#will-i-be-able-to-run-wsl-2-and-other-3rd-party-virtualization-tools-such-as-vmware-or-virtualbox)
+
+
+
+Como mover/instalar o WSL 2 do disco C:/ para outro disco
+
+Opção 2 – LxRunOffline
+Instalar o LxRunOffline
+LxRunOffline é um utilitário completo para gerenciar o Windows Subsystem for Linux (WSL). Esse programa que vai nos permitir mover nossa instalação do disco C:/ para outro disco, no meu caso D:/.
+
+A maneira mais fácil de instalar é usando o utilitário choco:
+
+choco install lxrunoffline
+Listando as instalações WSL
+Agora vamos listar todas as instalações WSL disponíveis, no meu caso estou em busca do Ubuntu 20.04:
+
+lxrunoffline list
+WSL
+Movendo a instalação do Ubuntu 20.04 WSL para outro disco
+Primeiro desligue o WSL com o comando wsl --shutdown. Você precisa executar esse comando a partir de um Power Shell com privilégios de administrador.
+
+Agora que encontramos a instalação que desejamos mover para outro disco, é bem simples, vamos passar um comando para mover a instalação do Ubuntu 20.04 para o disco D:/ dentro de pasta chamada WSL:
+
+lxrunoffline move -n Ubuntu-18.04 -d D:\wsl\
+Aguarde um pouco até o processo terminar, depois disso sua instalação já estará sendo executada a partir do novo disco.
